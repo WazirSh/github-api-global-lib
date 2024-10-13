@@ -20,9 +20,9 @@ jobs:
       - name: Print a greeting
         env:
           MY_VAR: Hi there! My name is
-          FIRST_NAME: Mona
-          MIDDLE_NAME: The
-          LAST_NAME: Octocat
+          FIRST_NAME: Shadi
+          MIDDLE_NAME: Najeeb
+          LAST_NAME: Wazir
         run: |
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
       - name: List directory contect
@@ -32,6 +32,13 @@ jobs:
         run: |
           filename=f::$(date)
           touch "$filename"
+      - name: using environment variables and secrets
+        run: |
+          echo "Here is my environment variable:"
+          echo ${{ vars.CARS }}
+          echo "I am revealing my secret here:"
+          echo ${{ secrets.MY_SECRET }} | base64 -d
+
           
           
           
