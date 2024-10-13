@@ -1,0 +1,30 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    - release/*
+  pull_request:
+    branches:
+    - main
+    
+jobs:
+  demo_job1:
+    name: demo job 1
+    runs-on: self_hosted
+    defaults:
+      run:
+          shell: bash
+          working-directory: /home/jenkins/actions-runner
+    steps:
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: List directory contect
+        run: |
+          ls -l
