@@ -38,6 +38,7 @@ jobs:
           echo ${{ vars.CARS }}
           echo "I am revealing my secret here:"
           echo ${{ secrets.MY_SECRET }} | base64 -d
+          echo "===================================="
 
           
           
