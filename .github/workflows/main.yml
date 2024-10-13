@@ -15,7 +15,7 @@ jobs:
     defaults:
       run:
           shell: bash
-          working-directory: /home/jenkins/actions-runner
+          working-directory: /tmp/my-runner
     steps:
       - name: Print a greeting
         env:
@@ -27,4 +27,11 @@ jobs:
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
       - name: List directory contect
         run: |
-          ls -l
+          ls -l          
+      - name: leave a trace file on the runner working directory
+        run: |
+          filename=f::$(date)
+          touch "$filename"
+          
+          
+          
